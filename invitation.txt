@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact us - Send E-mail</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- 配置Tailwind自定义颜色和字体 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#4f46e5',
+                        accent: '#0ea5e9',
+                        dark: '#1e293b',
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .transition-custom {
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+        }
+    </style>
+</head>
+<body class="font-inter bg-gradient-to-br from-slate-50 to-slate-100 min-h-screen flex flex-col">
+    <!-- 页面头部 -->
+    <header class="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <i class="fa fa-envelope-o text-primary text-2xl"></i>
+                <h1 class="text-xl md:text-2xl font-bold text-dark">Reach via email</h1>
+            </div>
+            <nav>
+                <ul class="flex gap-6">
+                    <li><a href="#" class="text-slate-600 hover:text-primary transition-custom">Home</a></li>
+                    <li><a href="#" class="text-slate-600 hover:text-primary transition-custom">About Us</a></li>
+                    <li><a href="#" class="text-slate-600 hover:text-primary transition-custom">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 主要内容区 -->
+    <main class="flex-grow container mx-auto px-4 py-12 md:py-24 flex flex-col items-center justify-center text-center">
+        <div class="max-w-2xl mx-auto">
+            <div class="mb-10">
+                <i class="fa fa-paper-plane text-6xl text-primary/80 mb-6"></i>
+                <h2 class="text-[clamp(2rem,5vw,3rem)] font-bold text-dark mb-4 text-shadow">
+                    Send us an email to get in touch
+                </h2>
+                <p class="text-slate-600 text-lg mb-8">
+                    Click the button below to send us an email. Our team will respond to your inquiries and feedback asap.
+                </p>
+            </div>
+            
+            <!-- 邮件链接按钮 -->
+            <a 
+                href="mailto:licensemanage@hybroad.com?subject=Schedule a meeting&body=Please navigate to the next available date between September 12th and 14th to book your slot.
+Should a scheduling conflict occur, a team member will reach out to arrange an alternative time.：" 
+                class="inline-flex items-center gap-3 bg-gradient-to-r from-primary to-secondary text-white font-semibold py-4 px-8 rounded-full text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-custom w-full md:w-auto"
+            >
+                <i class="fa fa-envelope"></i>
+                <span>Send e-mail</span>
+                <i class="fa fa-arrow-right ml-1"></i>
+            </a>
+            
+            <!-- 联系信息卡片 -->
+            <div class="mt-16 bg-white rounded-xl shadow-md p-8 transform hover:shadow-lg transition-custom">
+                <h3 class="text-xl font-semibold text-dark mb-4">Contact Information</h3>
+                <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-primary/10 p-3 rounded-full">
+                            <i class="fa fa-envelope text-primary"></i>
+                        </div>
+                        <span class="text-slate-700">licensemanage@hybroad.com</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="bg-primary/10 p-3 rounded-full">
+                            <i class="fa fa-phone text-primary"></i>
+                        </div>
+                        <span class="text-slate-700">+86 139 1100 8973</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-4">© 2025 Contact Us | All Rights Reserved</p>
+            <div class="flex justify-center gap-4">
+                <a href="#" class="text-slate-300 hover:text-white transition-custom"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="text-slate-300 hover:text-white transition-custom"><i class="fa fa-twitter"></i></a>
+                <a href="#" class="text-slate-300 hover:text-white transition-custom"><i class="fa fa-linkedin"></i></a>
+                <a href="#" class="text-slate-300 hover:text-white transition-custom"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 简单的交互脚本 -->
+    <script>
+        // 页面加载动画
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainContent = document.querySelector('main');
+            mainContent.classList.add('opacity-0', 'translate-y-4');
+            
+            setTimeout(() => {
+                mainContent.classList.remove('opacity-0', 'translate-y-4');
+                mainContent.classList.add('transition-all', 'duration-700', 'ease-out');
+            }, 100);
+        });
+        
+        // 邮件链接点击跟踪
+        document.querySelector('a[href^="mailto"]').addEventListener('click', () => {
+            console.log('用户点击了发送邮件按钮');
+            // 这里可以添加邮件发送统计代码
+        });
+    </script>
+</body>
+</html>
